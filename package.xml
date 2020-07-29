@@ -1,5 +1,34 @@
 <?xml version="1.0"?>
+<!--
+
+The package manifest is an XML file called package.xml that must be included with any catkin-compliant package's root folder.
+  This file defines properties about the package such as the package name, version numbers, authors,
+   maintainers, and dependencies on other catkin packages.
+
+Your system package dependencies are declared in package.xml.
+
+-->
+<!-- ################################################################################################################# -->
 <package format="2">
+<!--
+
+  The structure is in Format 2(recommneded) documentation on this can be found
+  https://docs.ros.org/melodic/api/catkin/html/howto/format2/migrating_from_format_1.html#migrating-from-format1-to-format2
+
+-->
+<!-- ################################################################################################################# -->
+
+<!--
+There are a minimal set of tags that need to be nested within the <package> tag to make the package manifest complete.
+These are
+
+<name>    - the name of the package
+<version> - the version of the package(required to be 3 dot-serparated integegers)
+<description>  - A description of the package contents
+<maintainer>  -  The name of the person(s) that is/are maintaining the package
+<license> - the software license(s) (GPL, BSD, ASL) under which the code is released.
+ -->
+
   <name>ros_for_beginners_one</name>
   <version>0.0.0</version>
   <description>The ros_for_beginners_one package</description>
@@ -28,6 +57,23 @@
   <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
 
 
+  <!-- ############################################################## -->
+<!--
+The package manifest with minimal tags does not specify any dependencies on other packages. Packages have 6 types of dependencies.
+
+1) <build_depend> Build Dependencies -  specify which packages are needed to build this package.
+                                  specifies that a dependency is a build, export, and execution dependency.
+                                  This is the most commonly used dependency tag.
+2) <build_export_depend>  Build Export Dependencies - specify which packages are needed to buld libraries against this package.
+3) <exec_depend> Exectuion Dependencies - specify which packages are needed to run code in this package.
+4) <test_depend> Test dependencies - specify only additional dependencies for unit tests.
+                      They should never duplicate any dependencies already mentioned as build or run dependencies.
+5) <buildtool_depend>Build tool dependencies - specify build system tools which this package needs to build itself.
+                              Typically the only build tool needed is catkin.
+6) <doc_depend> Documentation Tool Dependencies - specify documentation tools which this package needs to generate documentation.
+
+ -->
+
   <!-- The *depend tags are used to specify dependencies -->
   <!-- Dependencies can be catkin packages or system dependencies -->
   <!-- Examples: -->
@@ -48,6 +94,10 @@
   <!--   <test_depend>gtest</test_depend> -->
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
+
+<!-- ###############################################################################################################
+  ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES ############################################# -->
+
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
@@ -59,6 +109,8 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
+  <!-- ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+  #################################################################################################### -->
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

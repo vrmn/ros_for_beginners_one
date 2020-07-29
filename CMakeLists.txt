@@ -7,11 +7,18 @@ project(ros_for_beginners_one)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
+###############################################################################################################################
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
 )
+
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+################################################################################################################################
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -67,11 +74,10 @@ find_package(catkin REQUIRED COMPONENTS
 #   Action2.action
 # )
 
+
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+#generate_messages(DEPENDENCIES std_msgs)
+
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -102,12 +108,18 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
+
+################################################################################################################################
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES ros_for_beginners_one
-#  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
+
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+#################################################################################################################################
 
 ###########
 ## Build ##
@@ -130,10 +142,25 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+####################################################################################################################
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/ros_for_beginners_one_node.cpp)
+
+add_executable(talker src/talker.cpp)
+target_link_libraries (talker ${catkin_LIBRARIES})
+#add_dependencies(talker ros_for_beginners_one)
+
+add_executable(listener src/listener.cpp)
+target_link_libraries (listener ${catkin_LIBRARIES})
+#add_dependencies(talker ros_for_beginners_one)
+
+
+############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
+################################################################################################################################
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -204,3 +231,7 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+####
+####
+####
