@@ -17,6 +17,9 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   actionlib_msgs
   message_generation
+  cv_bridge
+  image_transport
+  geometry_msgs
 )
 
 ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
@@ -120,8 +123,8 @@ actionlib_msgs
 catkin_package(
   #INCLUDE_DIRS include
   LIBRARIES ros_for_beginners_one
-  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
-  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp rospy std_msgs message_runtime geometry_msgs
+  DEPENDS system_lib system_lib_INCLUDE_DIRS system_lib_LIBRARIES
 )
 
 ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
@@ -136,6 +139,7 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
@@ -156,14 +160,28 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/ros_for_beginners_one_node.cpp)
 
-add_executable(talker src/talker.cpp)
+add_executable(talker src/01_writing_pub_sub_overview/talker.cpp)
 target_link_libraries (talker ${catkin_LIBRARIES})
 #add_dependencies(talker ros_for_beginners_one)
 
-add_executable(listener src/listener.cpp)
+add_executable(listener src/01_writing_pub_sub_overview/listener.cpp)
 target_link_libraries (listener ${catkin_LIBRARIES})
 #add_dependencies(talker ros_for_beginners_one)
 
+add_executable(robot_cleaner_node src/05_motion_in_ros/robot_cleaner.cpp)
+target_link_libraries (robot_cleaner_node ${catkin_LIBRARIES})
+#add_dependencies(talker ros_for_beginners_one)
+
+add_executable(robot_cleaner_node_continued src/05_motion_in_ros/robot_cleaner_continued.cpp)
+target_link_libraries (robot_cleaner_node_continued ${catkin_LIBRARIES})
+#add_dependencies(talker ros_for_beginners_one)
+
+add_executable(robot_cleaner_node_continued3 src/05_motion_in_ros/robot_cleaner_3_goal_to_goal.cpp)
+target_link_libraries (robot_cleaner_node_continued3 ${catkin_LIBRARIES})
+#add_dependencies(talker ros_for_beginners_one)
+
+#add_executable(robot_cleaner_4_goal_to_goal_node src/05_motion_in_ros/robot_cleaner_4_goal_to_goal_part2.cpp)
+#target_link_libraries (robot_cleaner_4_goal_to_goal_node ${catkin_LIBRARIES})
 
 ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
 ################################################################################################################################

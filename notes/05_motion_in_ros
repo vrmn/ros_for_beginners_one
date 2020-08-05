@@ -1,0 +1,16 @@
+List of functions
+void move(double speed, double distance, bool isForward);          a method move will be developed that allows the robot to move straight (speed, distance, forward or backward)
+void rotate (double angular_speed, double andle, bool clockwise); a function that rottates robot
+double degree2radians(double angle_in_degrees);                     all angles in ros are express in radian this converts degrees to radians
+void poseCallback(const turtlesim::Pose::ConstPtr & pose_message);
+double setAbsoluteOrientation (double desired_angle);
+//double clean()
+double getDistance(double x1, double y1, double x2, double y2):
+//void moveGoal(turtlesim::Pose goal_pose, double)
+
+for this tutorial were going to make another package, later see if you can make this package its own node or maybe just have yourself refer to a repo in github
+
+remember to create package cd to project workspace src folder
+then type catkin_create_package package_name depend1 in this case turtlesim_cleaner is one of the dependables
+go back to project worksapce and type catkin build
+add src file if it doesnt have one so type mkdir src

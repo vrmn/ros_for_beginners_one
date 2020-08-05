@@ -102,6 +102,7 @@ The package manifest with minimal tags does not specify any dependencies on othe
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
   <build_depend>message_generation</build_depend>
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
@@ -109,6 +110,7 @@ The package manifest with minimal tags does not specify any dependencies on othe
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
 
   <!-- ############################ MODIFY THIS WHEN BUILDING PUBLISH SUBSCRIBER C++ NODES #############################################
